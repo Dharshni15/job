@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to JobPortal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2563eb;
+            margin-bottom: 10px;
+        }
+        .welcome-title {
+            color: #1f2937;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .content {
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 20px 0;
+        }
+        .features {
+            background-color: #f8fafc;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .feature-item {
+            margin: 10px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+        .feature-item:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #10b981;
+            font-weight: bold;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 14px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">JobPortal</div>
+            <h1 class="welcome-title">Welcome {{name}}! 🎉</h1>
+        </div>
+
+        <div class="content">
+            <p>We're thrilled to have you join our professional community! Your journey to finding the perfect job or top talent starts now.</p>
+            
+            <div class="features">
+                <h3>What you can do with JobPortal:</h3>
+                <div class="feature-item">🤖 Get AI-powered job recommendations</div>
+                <div class="feature-item">🔗 Build professional connections</div>
+                <div class="feature-item">💼 Access skill assessments and certifications</div>
+                <div class="feature-item">📊 Track your application progress</div>
+                <div class="feature-item">🏢 Explore company insights and reviews</div>
+            </div>
+
+            <center>
+                <a href="{{dashboardUrl}}" class="cta-button">Complete Your Profile</a>
+            </center>
+
+            <p><strong>Next steps:</strong></p>
+            <ol>
+                <li>Complete your professional profile ({{profileCompleteness}}% done)</li>
+                <li>Add your skills and experience</li>
+                <li>Set your job preferences</li>
+                <li>Start connecting with professionals</li>
+            </ol>
+        </div>
+
+        <div class="footer">
+            <p>Need help getting started? <a href="{{supportUrl}}">Contact our support team</a></p>
+            <p>Best regards,<br>The JobPortal Team</p>
+        </div>
+    </div>
+</body>
+</html>

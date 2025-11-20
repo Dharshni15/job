@@ -1,0 +1,15 @@
+
+> backend@1.0.0 dev
+> node server.js
+
+🧪 Email service running in development mode - emails will be logged only
+🚀 Initializing email service...
+📧 Email service running in development mode
+Server running at port 4000
+(node:99672) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.
+ SDK releases are limited to address critical bug fixes and security issues only.
+
+Please migrate your code to use AWS SDK for JavaScript (v3).
+For more information, check the blog post at https://a.co/cUPnyil
+(Use `node --trace-warnings ...` to show where the warning was created)
+MongoDB Connected Sucessfully !

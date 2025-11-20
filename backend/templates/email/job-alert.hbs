@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Job Matches</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .email-container {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        .job-card {
+            border: 1px solid #e5e7eb;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            background-color: #fafafa;
+        }
+        .job-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+        .company-info {
+            color: #6b7280;
+            margin-bottom: 10px;
+        }
+        .job-details {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .detail-item {
+            background-color: #e5e7eb;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .match-score {
+            display: inline-block;
+            background-color: #10b981;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        .job-description {
+            margin: 10px 0;
+            color: #4b5563;
+        }
+        .apply-button {
+            display: inline-block;
+            background-color: #2563eb;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .view-all-button {
+            display: block;
+            text-align: center;
+            background-color: #6b7280;
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin: 30px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e7eb;
+            font-size: 14px;
+            color: #6b7280;
+        }
+    </style>
+</head>
+<body>
+    <div class="email-container">
+        <div class="header">
+            <div class="logo">JobPortal</div>
+            <h1>🎯 New Job Matches for You!</h1>
+            <p>Hi {{name}}, we found {{jobCount}} new jobs that match your profile</p>
+        </div>
+
+        <div class="content">
+            {{#each jobs}}
+            <div class="job-card">
+                <div class="match-score">{{compatibilityScore}}% Match</div>
+                <div class="job-title">{{title}}</div>
+                <div class="company-info">
+                    <strong>{{company.name}}</strong> • {{location.city}}, {{location.country}}
+                </div>
+                
+                <div class="job-details">
+                    <span class="detail-item">💼 {{jobType}}</span>
+                    <span class="detail-item">🏠 {{workArrangement}}</span>
+                    <span class="detail-item">📈 {{experienceLevel}}</span>
+                    {{#if salary}}
+                    <span class="detail-item">💰 {{salary}}</span>
+                    {{/if}}
+                </div>
+
+                <div class="job-description">
+                    {{truncate description 150}}
+                </div>
+
+                {{#if matchReasons}}
+                <div style="background-color: #f0f9ff; padding: 10px; border-radius: 6px; margin: 10px 0;">
+                    <strong>Why this matches you:</strong>
+                    <ul style="margin: 5px 0; padding-left: 20px;">
+                        {{#each matchReasons}}
+                        <li>{{this}}</li>
+                        {{/each}}
+                    </ul>
+                </div>
+                {{/if}}
+
+                <a href="{{jobUrl}}" class="apply-button">View & Apply</a>
+            </div>
+            {{/each}}
+
+            {{#if hasMoreJobs}}
+            <center>
+                <a href="{{allJobsUrl}}" class="view-all-button">View All {{totalJobs}} Matches</a>
+            </center>
+            {{/if}}
+        </div>
+
+        <div class="footer">
+            <p><strong>💡 Tip:</strong> Complete your profile to get even better matches!</p>
+            <p>Your profile is {{profileCompleteness}}% complete. <a href="{{profileUrl}}">Update profile</a></p>
+            <hr style="margin: 20px 0; border: none; border-top: 1px solid #e5e7eb;">
+            <p>Don't want these emails? <a href="{{unsubscribeUrl}}">Update your notification preferences</a></p>
+            <p>Best regards,<br>The JobPortal Team</p>
+        </div>
+    </div>
+</body>
+</html>
